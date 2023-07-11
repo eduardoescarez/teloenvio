@@ -1,15 +1,16 @@
 {% extends "components/base_public_part.html" %}
-        
+{% load static %}        
     {% block content %}
     
     <div class="row">
         <div class="col-4">
-            <h1>¿Qué deseas buscar?</h1>
-            <h2>Encomienda</h2>
-            <h2>Documento</h2>
+            <img src="{% static 'images/logo.png' %}" class="mx-auto d-block"></a>
+            <h1 class="mb-5">¿Qué deseas buscar?</h1>
+            <h2 class="mb-5">Encomienda</h2>
+            <h2 class="mb-5">Documento</h2>
         </div>
         <div class="col-8">
-            <h3>Te Lo Envío apoya a los emprendedores locales con el catalogo de productos</h3>
+            <h3>Te Lo Envío apoya a los emprendedores locales con el <a href="{% url 'catalogo' %}">catalogo de productos</a></h3>
         </div>
     </div>
     {% endblock %}

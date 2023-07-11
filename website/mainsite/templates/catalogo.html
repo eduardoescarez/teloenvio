@@ -1,0 +1,35 @@
+{% extends "components/base_public_part.html" %}
+        
+    {% block content %}
+
+    <div class="row">
+        <div class="col-10">
+            {% if cantidad_productos == 0 %}
+                <p class="fs-2 text-center" style="color:dimgrey"><i class="fa-regular fa-face-frown-open"></i> No contamos con productos en esta categoría</p>
+            {% elif cantidad_productos > 0 %}
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    {% for element in productos %}
+                        <div class="col">
+                        <div class="card">
+                            <!-- <img src="{{element.image.url}}" class="card-img-top" alt="Foto de {{element.nombre}}"> -->
+                            <div class="card-body">
+                            <h5 class="card-title">{{element.nombre_producto}}</h5>
+                            <p class="card-text">{{element.descripcion_producto}}</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Emprendedor: {{element.id_productor}}</li>
+                                <li class="list-group-item">Disponibilidad: {% if element.stock_producto == 0%} No {% elif element.stock_producto > 0 %} Si {% endif %}</li>
+                                <li class="list-group-item">Precio: {{element.precio_producto}}</li>
+                                <li class="list-group-item">Precio: {{element.precio_producto}}</li>
+                                <li class="list-group-item">Stock: {{element.stock_producto}}</li>
+                                
+                            </ul>
+                        </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% endblock %}

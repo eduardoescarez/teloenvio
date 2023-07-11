@@ -4,10 +4,17 @@
     
     <div class="row">
         <div class="col-9">
-            Únete a la Plaforma Emprededores
+            <h1>Únete a la Plaforma Emprededores de Te lo envío</h1>
         </div>
         <div class="col-3">
-            Imageness
+            <div class="col-12">
+                Para iniciar sesión presione aquí:
+            </div>
+            <a href="{% url 'login' %}" class="btn btn-primary me-3">Iniciar sesión</a>
+            <div class="col-12">
+                Si su empresa ya está inscrita, puede crear una cuenta aquí:
+            </div>
+                <a href="{% url 'nuevo_usuario' %}" class="btn btn-primary me-3">Crear cuenta de usuario</a>
         </div>
     </div>
     {% endblock %}

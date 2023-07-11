@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 #Importa vistas desde mainsite
-from mainsite.views import IndexView, IndexEmprendedoresView
+from mainsite.views import IndexView, IndexEmprendedoresView, CatalogoView
 from teloenvio.views import LoginView, InternalHomeView, ListadoPedidosView, CreateProductorView, CreatePedidoView, NuevoUsuarioView
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.decorators import login_required
@@ -27,6 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
     path('emprededores', IndexEmprendedoresView.as_view(), name='emprendedores'),
+    path('catalogo', CatalogoView.as_view(), name='catalogo'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('nuevousuario', NuevoUsuarioView.as_view(), name='nuevo_usuario'), 
