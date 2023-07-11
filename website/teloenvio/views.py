@@ -118,6 +118,18 @@ class ListadoPedidosView(TemplateView):
         }
         return render(request, self.template_name, context)
 
+# Listado de rutas
+class RutaPedidosView(TemplateView):
+    template_name = 'listado_pedidos.html'
+    
+    def get(self, request, *args, **kwargs):
+        pedidos = Pedidos.objects.all().order_by('fecha_entrega').order_by('comuna_cliente').order_by('direccion_cliente')
+        context = {
+            'title': 'Consulta de rutas',
+            'pedidos': pedidos,
+        }
+        return render(request, self.template_name, context)
+
 
 # Crear productor
 class CreateProductorView(TemplateView):

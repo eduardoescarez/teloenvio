@@ -6,18 +6,18 @@
         <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-body">
-                <h5 class="card-title">Mis pedidos</h5>
+                <h5 class="card-title">Crear pedido</h5>
                 
-                <p class="card-text">Acá para crear un pedido y un botón para crear clientes</p>
-                
+                <p class="card-text"><a href="{% url 'nuevo_pedido' %}" class="btn btn-primary me-3">Crear pedido</a></p>
+                <p class="card-text"><a href="{% url 'nuevo_emprendedor' %}" class="btn btn-primary me-3">Agregar emprendedor</a></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-body">
-                <h5 class="card-title">Listado</h5>
-                <p class="card-text">Acá botón de listado.</p>
+                <h5 class="card-title">Listado de pedidos</h5>
+                <p class="card-text"><a href="{% url 'listado_pedidos' %}" class="btn btn-primary me-3">Listado de pedidos</a></p>
                 </div>
             </div>
         </div>
@@ -25,14 +25,7 @@
             <div class="card">
                 <div class="card-body">
                 <h5 class="card-title">Rutas de pedidos</h5>
-                <p class="card-text">Acá botón de ruta de pedidos</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3">
-            <div class="card">
-                <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-user"></i> Contacto</h5>
+                <p class="card-text"><a href="{% url 'listado_rutas' %}" class="btn btn-primary me-3">Rutas de pedidos</a></p>
                 </div>
             </div>
         </div>

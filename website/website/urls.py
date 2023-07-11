@@ -19,7 +19,7 @@ from django.urls import path
 
 #Importa vistas desde mainsite
 from mainsite.views import IndexView, IndexEmprendedoresView, CatalogoView
-from teloenvio.views import LoginView, InternalHomeView, ListadoPedidosView, CreateProductorView, CreatePedidoView, NuevoUsuarioView
+from teloenvio.views import LoginView, InternalHomeView, ListadoPedidosView, CreateProductorView, CreatePedidoView, NuevoUsuarioView, RutaPedidosView
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.decorators import login_required
 
@@ -33,6 +33,7 @@ urlpatterns = [
     path('nuevousuario', NuevoUsuarioView.as_view(), name='nuevo_usuario'), 
     path('internal/home', login_required(InternalHomeView.as_view()), name='internal'),
     path('internal/listadopedidos', login_required(ListadoPedidosView.as_view()), name='listado_pedidos'),
+    path('internal/listadorutas', login_required(RutaPedidosView.as_view()), name='listado_rutas'),
     path('internal/nuevoemprendedor', login_required(CreateProductorView.as_view()), name='nuevo_emprendedor'),
     path('internal/nuevopedido', login_required(CreatePedidoView.as_view()), name='nuevo_pedido'),
 ]
