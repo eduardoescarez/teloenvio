@@ -28,6 +28,8 @@ El programa está configurado para usar PostgreSQL como motor de base de datos
 
 3.  Clone el proyecto desde el repositorio
 
+    https://github.com/eduardoescarez/teloenvio
+
     Y descomprima el archivo **en el mismo directorio** donde se encuentra el directorio .venv.
     También puede clonar el proyecto usando git, con las indicaciones señaladas anteriormente.
 
@@ -67,4 +69,10 @@ También existe una carpeta adicional **docs** que contiene otros archivos de do
 
 ## Usuarios
 
-Los usuarios se encuentran en el archivo usuarios.md
+    username: admin
+    password: hola.123
+    email   : admin-teloenvio@eduardoe.com
+
+    username: mcornejo
+    password: CARONTE23 
+    email   : mcornejo@teloenvio.cl
