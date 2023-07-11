@@ -17,6 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+#Importa vistas desde mainsite
+from mainsite.views import IndexView, IndexEmprendedoresView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', IndexView.as_view(), name='index'),
+    path('emprededores', IndexEmprendedoresView.as_view(), name='emprendedores'),
 ]
