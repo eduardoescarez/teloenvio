@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 # Create your models here.
 
 
-# Modelo de empresas
+# Modelo de productores
 class Productores(models.Model):
     id_productor = models.AutoField(primary_key=True)
     nombre_contacto = models.CharField(max_length=60, null=False, blank=False)
