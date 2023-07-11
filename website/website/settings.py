@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -138,3 +138,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Agrega rutas de redirección
+
+# LOGOUT_REDIRECT_URL = 'login'
+# LOGIN_URL = 'login'
+# LOGOUT_URL = 'logout'
+
+# AUTH_USER_MODEL = 'teloenvio.CustomUser'
+
+EMAIL_HOST = 'mail.fabricadecodigo.dev'
+EMAIL_PORT = 2525
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'talento@fabricadecodigo.dev'
+EMAIL_HOST_PASSWORD = 'talento.,2023'
