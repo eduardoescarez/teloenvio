@@ -144,9 +144,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Agrega rutas de redirección
 
-# LOGOUT_REDIRECT_URL = 'login'
-# LOGIN_URL = 'login'
-# LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 
 
 

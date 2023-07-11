@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from teloenvio.models import CustomUser
-from teloenvio.forms import FormularioLogin
+from teloenvio.models import CustomUser, Pedidos, Productores
+from teloenvio.forms import FormularioLogin, FormularioProductor
 
 # Create your views here.
 
@@ -41,4 +41,50 @@ class InternalHomeView(TemplateView):
         context = {
             'title': 'Bienvenido a Te Lo Envío',
         }
+        return render(request, self.template_name, context)
+    
+# Listado de pedidos
+class ListadoPedidosView(TemplateView):
+    template_name = 'listado_pedidos.html'
+    
+    def get(self, request, *args, **kwargs):
+        pedidos = Pedidos.objects.all()
+        context = {
+            'title': 'Consulta de estado de pedidos',
+            'pedidos': pedidos,
+        }
+        return render(request, self.template_name, context)
+
+# Crear productores
+class CreateProductorView(TemplateView):
+    template_name = 'crear_productor.html'
+    
+    def get(self, request, *args, **kwargs):
+        context = {
+            'title': 'Registro de emprendedores',
+            'formulario': FormularioProductor(),
+        }
+        return render(request, self.template_name, context)
+    
+    def post(self, request, *args, **kwargs):
+        form = FormularioProductor(request.POST)
+        if form.is_valid():
+            registro = Productores(
+                razon_social = form.cleaned_data['razon_social'],
+                rut = form.cleaned_data['rut'],
+                rubro = form.cleaned_data['rubro'],
+                nombre_contacto = form.cleaned_data['nombre_contacto'],
+                direccion = form.cleaned_data['direccion'],
+                comuna = form.cleaned_data['comuna'],
+            )
+            registro.save()
+            request.session['mensajes'] = {'enviado': True, 'resultado': 'Se ha añadido el emprendedor.'}
+            return redirect('internal')
+        else:
+            mensajes = {'enviado': False, 'resultado': form.errors}
+
+        context = {
+            'form': form,
+            'mensajes': mensajes,
+            }
         return render(request, self.template_name, context)

@@ -1,0 +1,30 @@
+{% extends "components/base_internal_part.html" %}
+
+{% block content %}
+
+
+
+<div class="row">
+    <div class="col">Estado de entrega</div>
+    <div class="col">Productor</div>
+    <div class="col">Pedido</div>
+    <div class="col">Fecha de entrega</div>
+    <div class="col">Dirección de entrega</div>
+    <div class="col">Comuna</div>
+    <div class="col">Nombre de cliente</div>
+    <div class="col">Teléfono de cliente</div>
+</div>
+<div class="row">
+    {% for element in pedidos %}
+    <div class="col">{{element.estado_pedido}}</div>
+    <div class="col">{{element.id_productor}}</div>
+    <div class="col">{{element.id}}</div>
+    <div class="col">{{element.fecha_entrega | date:'d-m-Y' }}</div>
+    <div class="col">{{element.id_cliente.direccion}}</div>
+    <div class="col">{{element.id_cliente.comuna}}</div>
+    <div class="col">{{element.id_cliente}}</div>
+    <div class="col">{{element.id_cliente.telefono}}</div>
+    {% endfor %}
+</div>
+
+{% endblock%}

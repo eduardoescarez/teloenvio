@@ -54,6 +54,6 @@ class PedidosAdmin(admin.ModelAdmin):
     list_display = ['id', 'fecha_creacion', 'id_productor', 'id_cliente']
     search_fields = ['id', 'id_productor', 'id_cliente']
     ordering = ['id']
-    fields = ['fecha_creacion', 'id_productor', 'id_cliente', 'instrucciones_entrega', 'medio_pago', 'cantidad_cajas', 'peso_total', 'valor_pedido']
+    fields = ['fecha_creacion', 'fecha_entrega', 'estado_pedido', 'id_productor', 'id_cliente', 'instrucciones_entrega', 'medio_pago', 'cantidad_cajas', 'peso_total', 'valor_pedido']
 
 admin.site.register(Pedidos, PedidosAdmin)
