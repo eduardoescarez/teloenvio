@@ -19,9 +19,13 @@ from django.urls import path
 
 #Importa vistas desde mainsite
 from mainsite.views import IndexView, IndexEmprendedoresView
+from teloenvio.views import LoginView, InternalHomeView
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
     path('emprededores', IndexEmprendedoresView.as_view(), name='emprendedores'),
+    path('login/', LoginView.as_view(), name='login'),
+    path('internal/home', login_required(InternalHomeView.as_view()), name='internal'),
 ]

@@ -97,6 +97,7 @@ DATABASES = {
 
 }
 
+# Modelo de usuarios personalizado
 AUTH_USER_MODEL = 'teloenvio.CustomUser'
 
 
