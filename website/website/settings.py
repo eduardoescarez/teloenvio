@@ -97,6 +97,8 @@ DATABASES = {
 
 }
 
+# AUTH_USER_MODEL = 'teloenvio.CustomUser'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -145,7 +147,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # LOGIN_URL = 'login'
 # LOGOUT_URL = 'logout'
 
-# AUTH_USER_MODEL = 'teloenvio.CustomUser'
+
 
 EMAIL_HOST = 'mail.fabricadecodigo.dev'
 EMAIL_PORT = 2525
