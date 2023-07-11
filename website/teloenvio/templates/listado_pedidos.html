@@ -14,17 +14,17 @@
     <div class="col">Nombre de cliente</div>
     <div class="col">Teléfono de cliente</div>
 </div>
+{% for element in pedidos %}
 <div class="row">
-    {% for element in pedidos %}
-    <div class="col">{{element.estado_pedido}}</div>
+    <div class="col">{{element.id_estado}}</div>
     <div class="col">{{element.id_productor}}</div>
     <div class="col">{{element.id}}</div>
     <div class="col">{{element.fecha_entrega | date:'d-m-Y' }}</div>
-    <div class="col">{{element.id_cliente.direccion}}</div>
-    <div class="col">{{element.id_cliente.comuna}}</div>
-    <div class="col">{{element.id_cliente}}</div>
-    <div class="col">{{element.id_cliente.telefono}}</div>
-    {% endfor %}
+    <div class="col">{{element.direccion_cliente}}</div>
+    <div class="col">{{element.comuna_cliente}}</div>
+    <div class="col">{{element.nombre_cliente}}</div>
+    <div class="col">{{element.telefono_cliente}}</div>
 </div>
+{% endfor %}
 
 {% endblock%}

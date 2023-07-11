@@ -1,5 +1,5 @@
 from django.contrib import admin
-from teloenvio.models import CustomUser, Productores, Productos, Pedidos, Clientes
+from teloenvio.models import CustomUser, Productores, Productos, Pedidos, Estado_Pedido
 from django.contrib.auth.admin import UserAdmin
 
 
@@ -21,6 +21,17 @@ class CustomUserAdmin(UserAdmin):                   # Modelo de usuarios persona
 
 admin.site.register(CustomUser, CustomUserAdmin)
 
+
+# Administración de estados de pedidos
+class EstadoPedidoAdmin(admin.ModelAdmin):        
+    list_display = ['id', 'estado']
+    search_fields = ['estado']
+    ordering = ['id']
+    fields = ['estado']
+
+admin.site.register(Estado_Pedido, EstadoPedidoAdmin)
+
+
 # Administración de productores
 class ProductoresAdmin(admin.ModelAdmin):
     list_display = ['id_productor', 'razon_social', 'rut']
@@ -30,15 +41,15 @@ class ProductoresAdmin(admin.ModelAdmin):
 
 admin.site.register(Productores, ProductoresAdmin)
 
-# Administración de clientes
-class ClientesAdmin(admin.ModelAdmin):
+# # Administración de clientes
+# class ClientesAdmin(admin.ModelAdmin):
 
-    list_display = ['id_cliente', 'nombre']
-    search_fields = ['id_cliente', 'nombre']
-    ordering = ['id_cliente']
-    fields  = [ 'nombre', 'correo', 'telefono', 'direccion', 'comuna']
+#     list_display = ['id_cliente', 'nombre']
+#     search_fields = ['id_cliente', 'nombre']
+#     ordering = ['id_cliente']
+#     fields  = [ 'nombre', 'correo', 'telefono', 'direccion', 'comuna']
 
-admin.site.register(Clientes, ClientesAdmin)
+# admin.site.register(Clientes, ClientesAdmin)
 
 # Administración de productos
 class ProductosAdmin(admin.ModelAdmin):
@@ -51,9 +62,9 @@ admin.site.register(Productos, ProductosAdmin)
 
 # Administración de pedidos
 class PedidosAdmin(admin.ModelAdmin):
-    list_display = ['id', 'fecha_creacion', 'id_productor', 'id_cliente']
+    list_display = ['id', 'fecha_creacion', 'id_productor',]
     search_fields = ['id', 'id_productor', 'id_cliente']
     ordering = ['id']
-    fields = ['fecha_creacion', 'fecha_entrega', 'estado_pedido', 'id_productor', 'id_cliente', 'instrucciones_entrega', 'medio_pago', 'cantidad_cajas', 'peso_total', 'valor_pedido']
+    fields = ['fecha_creacion', 'id_estado', 'fecha_entrega', 'estado_pedido', 'id_productor', 'instrucciones_entrega', 'medio_pago', 'cantidad_cajas', 'peso_total', 'valor_pedido']
 
 admin.site.register(Pedidos, PedidosAdmin)
