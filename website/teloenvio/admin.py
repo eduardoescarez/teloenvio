@@ -1,7 +1,25 @@
 from django.contrib import admin
-from teloenvio.models import Productores, Productos, Pedidos, Clientes
+from teloenvio.models import CustomUser, Productores, Productos, Pedidos, Clientes
+from django.contrib.auth.admin import UserAdmin
+
 
 # Register your models here.
+
+class CustomUserAdmin(UserAdmin):                   # Modelo de usuarios personalizados
+    model = CustomUser
+    list_display = [
+        'id',
+        'email',
+        'username',
+        'first_name',
+        'last_name',
+        'is_staff',
+        ]
+    ordering = ['id']
+    fieldsets = UserAdmin.fieldsets + ((None, {'fields': ('rut',)}),)         # Edición de usuarios en la administración
+    add_fieldsets = UserAdmin.add_fieldsets + ((None, {'fields': ('rut',)}),)  # Creación de usuarios en la administración
+
+admin.site.register(CustomUser, CustomUserAdmin)
 
 # Administración de productores
 class ProductoresAdmin(admin.ModelAdmin):

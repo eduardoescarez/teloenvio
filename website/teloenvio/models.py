@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 from django.db import models
-from django.contrib.auth import get_user_model
+# from django.contrib.auth import get_user_model
 
 # Create your models here.
 
@@ -56,7 +56,7 @@ class Clientes(models.Model):
 # Modelo de pedidos
 class Pedidos(models.Model):                
     fecha_creacion = models.DateTimeField(default=timezone.now)
-    idUsuario = models.ForeignKey(get_user_model(), on_delete=models.DO_NOTHING, null=True, blank=True)
+    # idUsuario = models.ForeignKey(get_user_model(), on_delete=models.DO_NOTHING, null=True, blank=True)
     id_productor = models.ForeignKey(Productores, on_delete=models.DO_NOTHING, null=True, blank=True)
     id_cliente = models.ForeignKey(Clientes, on_delete=models.DO_NOTHING, null=True, blank=True)
     instrucciones_entrega = models.CharField(max_length=100, null=True, blank=True)
@@ -74,6 +74,8 @@ class Pedidos(models.Model):
 
 
 # Modelo para usuarios personalizados
-# class CustomUser(AbstractUser):             
-#     rut = models.CharField(max_length=12, null=False, blank=False)
+class CustomUser(AbstractUser):             
+    rut = models.CharField(max_length=12, null=False, blank=False)
     
+    def __str__(self):
+        return str(self.username)

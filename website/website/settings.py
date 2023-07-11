@@ -97,7 +97,7 @@ DATABASES = {
 
 }
 
-# AUTH_USER_MODEL = 'teloenvio.CustomUser'
+AUTH_USER_MODEL = 'teloenvio.CustomUser'
 
 
 # Password validation
